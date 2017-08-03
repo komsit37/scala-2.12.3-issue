@@ -42,3 +42,7 @@ class BaseConfig<T extends BaseConfig<T>> {
     }
 }
 ```
+```java
+public class ServerConfig extends BaseConfig<ServerConfig> {
+}
+```
