@@ -1,6 +1,6 @@
 # example of issue in scala-2.12.3
 
-I found an issue after upgrading from scala 2.12.2 to 2.12.3. So I made this simple sbt project to demonstrate the issue.
+I found an issue after upgrading from scala 2.12.2 to 2.12.3. So I made this simple sbt project to demonstrate the issue. (this is a short excerpt from a java library that I use (redisson))
 
 
 to reporduce
