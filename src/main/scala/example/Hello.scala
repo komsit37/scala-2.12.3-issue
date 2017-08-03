@@ -2,7 +2,7 @@ package example
 
 import sample.ServerConfig
 
-//The code below compile ok in scala 2.12.2, but doesn't compile in scala 2.12.3
+//The code below runs ok in scala 2.12.2, but doesn't runs in scala 2.12.3
 //Exception in thread "main" java.lang.IllegalAccessError: tried to access class sample.BaseConfig from class example.Hello$
 object Hello extends App {
   new ServerConfig()
