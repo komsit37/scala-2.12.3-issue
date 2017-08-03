@@ -2,6 +2,7 @@
 
 I found an issue after upgrading from scala 2.12.2 to 2.12.3. So I made this simple sbt project to demonstrate the issue. (this is a short excerpt from a java library that I use (redisson))
 
+`Runtime error: java.lang.IllegalAccessError in java class`
 
 to reporduce
 ```
@@ -11,11 +12,14 @@ sbt run
 [error] (run-main-0) java.lang.IllegalAccessError: tried to access class sample.BaseConfig from class example.Hello$
 java.lang.IllegalAccessError: tried to access class sample.BaseConfig from class example.Hello$
 ```
+
 The same code works fine in scala 2.12.2
+
+This happen when calling java class with some complicated type casting from scala
 
 see `example.Hello`
 ```scala
-//The code below compile ok in scala 2.12.2, but doesn't compile in scala 2.12.3
+//The code below runs ok in scala 2.12.2, but doesn't runs in scala 2.12.3
 //Exception in thread "main" java.lang.IllegalAccessError: tried to access class sample.BaseConfig from class example.Hello$
 object Hello extends App {
   new ServerConfig()
@@ -25,7 +29,7 @@ object Hello extends App {
   println("ok")
 }
 ```
-looks like scala 2.12.3 compiler doesn't cast config class back properly in java
+I don't know why this happen but looks like scala 2.12.3 compiler doesn't handle casting config class back properly in java
 ```java
 class BaseConfig<T extends BaseConfig<T>> {
     private int connectTimeout = 10000;
