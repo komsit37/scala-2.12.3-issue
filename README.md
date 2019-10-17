@@ -1,8 +1,10 @@
-# example of issue in scala-2.12.3
+# Example of issue in scala-2.12.3
 
 run time error `java.lang.IllegalAccessError: tried to access class sample.BaseConfig from class example.Hello$`  
 
 I found an issue after upgrading from scala 2.12.2 to 2.12.3. So I made this simple sbt project to demonstrate the issue. (this is a short excerpt from a java library that I use (redisson))
+
+update 2017-08-04: this issue is fixed in scala-2.12.4. see https://github.com/scala/bug/issues/10450
 
 to reporduce
 ```
